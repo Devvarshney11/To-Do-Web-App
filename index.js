@@ -1,16 +1,26 @@
-const inp = document.getElementById('listinput');
-const list = document.getElementById('list');
-const btn = document.getElementById('add-btn');
-console.log(inp.value);
-clickFunc = function()
+const inputDom = document.getElementById('input-box');
+const btnDom = document.getElementById('submit-btn');
+console.log(btnDom);
+const tasks = document.querySelector('tasks');
+const form =document.querySelector(".form-control")
+const arr = [];
+clickFunc = function(e)
 {
-    if(inp.value != "")
+    
+    e.preventDefault()
+    if(inputDom.value != '')
     {
-        const new_list = document.createElement('li');
-        const text = document.createTextNode((list.childElementCount+1)+':- '+inp.value);
-        new_list.appendChild(text);
-        list.appendChild(new_list);
-        new_list.id = list.childElementCount;
+        arr.push(inputDom.value);
+        const items = arr.map((items,index) =>
+        {
+            return `<div class = "single-task">
+            <p>temp<p>
+            <div class="icon">
+                <i class="fa-solid fa-trash fa-shake"></i>
+            </div>
+        </div>`
+        })
+        tasks.innerHTML = items;
     }
 }
-btn.onclick = clickFunc;
+form.addEventListener("submit",clickFunc())
