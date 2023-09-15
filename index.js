@@ -3,7 +3,7 @@ const btnDom = document.getElementById('submit-btn');
 const tasks = document.querySelector('.tasks');
 const form = document.querySelector(".form-control");
 const notify = document.getElementById('notify');
-arr = [];
+var arr = [];
 if (arr.length == 0) {
     tasks.innerHTML = `<h3 class="empty-task">No Task Available</h3>`;
 }
@@ -57,8 +57,7 @@ function showTask()
     // console.log(localStorage.getItem("data"));
     tasks.innerHTML = localStorage.getItem("data");
     let retString = localStorage.getItem("temp")
-    arr = JSON.parse(retString)
-    console.log(arr);
+    arr = retString!=null? JSON.parse(retString):[];
 }
 btnDom.addEventListener("click", clickFunc)
 tasks.addEventListener("click", deleteFunc)
