@@ -63,3 +63,4 @@ btnDom.addEventListener("click", clickFunc)
 tasks.addEventListener("click", deleteFunc)
 
 showTask();
+localStorage.clear();
